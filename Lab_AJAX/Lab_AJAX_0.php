@@ -28,6 +28,32 @@
 		</select> 
 		<input type="submit" value="OK" /> 
 	</form>
+	<div id="debug"></div>
 
 </body>
+<script src="jquery.min.js"></script>
+<script>
+	$("#letter").on("change",function(){
+		var s = $("#letter option:selected").text();
+		var url = `getLetterNumber.php?letter=`+s;
+		$.ajax({
+			type: "get", //POST、get、put、delete
+			url: `getLetterNumber.php?letter=`+s,
+			//data: JSON.stringify(dataToServer),
+			//contentType:"application/json"
+			//success: function(e){
+			//$("#letterNumber").html(e);
+			// }
+
+
+		}).then(function(e){
+			$("#letterNumber").html(e);
+		})
+		// $.get(url,function(e){
+		// 	$("#letterNumber").html(e);
+		// })
+		
+	})
+
+</script>
 </html>
