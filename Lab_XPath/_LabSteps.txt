@@ -72,8 +72,8 @@ $xpath = new DOMXPath($doc);
 $entries = $xpath->query('//*[@id="news_box3"]/div[2]/ul/li');
 foreach ($entries as $entry) 
 {
-    $title = $xpath->query("./a/div/h3", $entry);
-    echo "Title：" . $title->item(0)->nodeValue . "<br>";
+    $title = $xpath->query("./a/div/h3", $entry);  //(相對路徑,起點)
+    echo "Title：" . $title->item(0)->nodeValue . "<br>"; //文法規則 item(0)
 }
 
 
